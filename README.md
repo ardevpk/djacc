@@ -1,13 +1,18 @@
 # Django Accounts
 
 
-### Add these lines in your settings.py file!
+## Add these lines in your INSTALLED_APPS of settings.py file!
+```
+
+# Third party apps!
+'accounts',
+'crispy_forms',
 
 ```
 
-INSTALLED_APPS.append('accounts')
 
-INSTALLED_APPS.append('crispy_forms')
+## Add these lines in your settings.py file!
+```
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -19,9 +24,9 @@ AUTHENTICATION_BACKENDS = (
 ```
 
 
-### Add these lines in your urls.py file!
+## Add this line in urlpatterns of your root/core urls.py file!
 ```
 
-urlpatterns.append(path('accounts/', include('accounts.urls')))
+path('accounts/', include('accounts.urls')),
 
 ```

@@ -10,7 +10,7 @@ from django.contrib.auth.views import PasswordChangeView, PasswordResetView, Pas
 # Create your views here.
 class Login(SuccessMessageMixin, LoginView):
     template_name = 'accounts/login.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('accounts:index')
     success_message = "Login successful"
 
 
@@ -25,7 +25,7 @@ class Profile(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     # form_class = UserChangeForm
     form_class = UserProfile
     template_name = 'accounts/profile.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('accounts:index')
     success_message = "Your profile updated successfully"
     def get_object(self):
         return self.request.user
@@ -33,18 +33,18 @@ class Profile(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
 class PasswordChange(SuccessMessageMixin, LoginRequiredMixin, PasswordChangeView):
     template_name = 'accounts/change-password.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('accounts:index')
     success_message = "Your password was changed successfully"
 
 
 class PasswordReset(SuccessMessageMixin, PasswordResetView):
     template_name = 'accounts/reset-password.html'
-    success_url = reverse_lazy('accounts:login')
+    success_url = reverse_lazy('accounts:signin')
     success_message = "Your password reset request was sent"
     form_class = EmailValidationCheckForm
 
 
 class PasswordResetConfirm(SuccessMessageMixin, PasswordResetConfirmView):
     template_name = 'accounts/reset-password-confirm.html'
-    success_url = reverse_lazy('accounts:login')
+    success_url = reverse_lazy('accounts:signin')
     success_message = "Your password reset was done successfully"
