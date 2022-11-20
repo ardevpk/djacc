@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="djacc",
-    version="0.0.6",
+    version="0.0.7",
     description="An extensible user-accounts application for Django",
     long_description=long_description,
     long_description_content_type="text/markdown",
