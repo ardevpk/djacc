@@ -18,7 +18,7 @@ def send_activation_email(user):
     current_site = getattribute('CURRENT_SITE')
     email_body = render_to_string(template_name, {
         'user': user,
-        "domain": "localhost:8000" if current_site else current_site,
+        "domain": "http://127.0.0.1:8000" if current_site==True else current_site,
         "username": urlsafe_base64_encode(force_bytes(user.username)),
         'token': account_activation_token.make_token(user),
     })
