@@ -13,8 +13,9 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-    def clean(self):
-        if getattribute('UNIQUE_EMAIL'):
+    if getattribute('UNIQUE_EMAIL'):
+        def clean(self):
+            super(UserRegisterForm, self).clean()
             email = self.cleaned_data.get('email')
             users = User.objects.filter(email__iexact=email)
             if users.exists():
@@ -26,7 +27,7 @@ class UserRegisterForm(UserCreationForm):
                     thread.start()
                     msg = _("Email already exists, Activation link has been sent to email!")
                 self.add_error('email', msg)
-        return self.cleaned_data
+            return self.cleaned_data
 
 
 class UserProfile(UserChangeForm):
