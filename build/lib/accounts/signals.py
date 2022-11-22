@@ -29,9 +29,9 @@ def send_activation_email(user):
 
 @receiver(post_save, sender=User)
 def update_user(sender, instance, created, **kwargs):
-    if created and getattribute('ACCOUNT_ACTIVATION'):
-        instance.is_active = False
-        instance.save()
-        thread = Thread(target=send_activation_email, args=(instance,))
-        thread.setDaemon(True)
-        thread.start()
+    if created and getattribute('ACCOUNT_ACTIVATION') and not instance.is_superuser:
+            instance.is_active = False
+            instance.save()
+            thread = Thread(target=send_activation_email, args=(instance,))
+            thread.setDaemon(True)
+            thread.start()
