@@ -34,17 +34,17 @@ path('accounts/', include('accounts.urls')),
 ## Default parameters which you can change in your settings.py
 ```
 
-UNIQUE_EMAIL = False # True
-ACCOUNT_ACTIVATION = False # True
-SIGNUP_URL = 'register/' # 'signup'
-SIGNIN_URL = 'login/' # 'signin'
+UNIQUE_EMAIL = bool # True
+ACCOUNT_ACTIVATION = bool # True
+SIGNUP_URL = str['uri'] # 'signup/'
+SIGNIN_URL = str['uri'] # 'signin/'
 
-SIGNUP_TEMPLATE = 'your-temp-path/temp-name.html' # 'accounts/register.html'
-ACTIVATION_EMAIL_TEMPLATE = 'your-temp-path/temp-name.html' # 'accounts/activate.html'
-LOGIN_TEMPLATE = 'your-temp-path/temp-name.html' # 'accounts/login.html'
-FORGET_TEMPLATE = 'your-temp-path/temp-name.html' # 'accounts/reset-password.html'
-PROFILE_TEMPLATE = 'your-temp-path/temp-name.html' # 'accounts/profile.html'
+SIGNUP_TEMPLATE = str['path'] # 'accounts/register.html'
+ACTIVATION_EMAIL_TEMPLATE = str['path'] # 'accounts/activate.html'
+LOGIN_TEMPLATE = str['path'] # 'accounts/login.html'
+FORGET_TEMPLATE = str['path'] # 'accounts/reset-password.html'
+PROFILE_TEMPLATE = str['path'] # 'accounts/profile.html'
 
-CURRENT_SITE = 'example.com' # 'localhost:8000'
+CURRENT_SITE = str['url'] # 'http://127.0.0.1:8000'
 
 ```
