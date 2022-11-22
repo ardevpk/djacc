@@ -1,4 +1,3 @@
-import os
 from setuptools import find_packages, setup
 
 
@@ -8,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="djacc",
-    version="0.0.9",
+    version="0.1.1",
     description="An extensible user-accounts application for Django",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -49,5 +48,9 @@ setup(
         "Topic :: Utilities",
     ],
     python_requires=">=3.7",
-    install_requires=["Django>=3.8", 'django-crispy-forms>=1.14.0'],
+    install_requires=[
+        "Django>=3.8",
+        'django-crispy-forms>=1.14.0',
+        'django-utils-six>=2.0'
+        ],
 )

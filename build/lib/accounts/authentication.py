@@ -16,10 +16,7 @@ class EmailOrUsernameModelBackend(ModelBackend):
             user = User.objects.get(
                 Q(email=username) | Q(username=username)
             )
-            pwd_valid = user.check_password(password)
-            if pwd_valid:
-                return user
-            return None
+            return user if user.check_password(password) else None
         except User.DoesNotExist:
             return None
 
