@@ -23,7 +23,7 @@ from .defaults import getattribute
 class SignUp(SuccessMessageMixin, CreateView):
     form_class = UserRegisterForm
     sig_temp = getattribute('SIGNUP_TEMPLATE')
-    template_name = sig_temp if sig_temp!=True else "accounts/register.html"
+    template_name = sig_temp if sig_temp!=True else "accounts/signup.html"
     success_url = reverse_lazy('signin')
     success_message = "Your account created successfully!"
     if getattribute('ACCOUNT_ACTIVATION'):
